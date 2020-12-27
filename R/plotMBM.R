@@ -96,6 +96,7 @@ plotMBM = function(resMBM,whichModel = 1, mycol = NULL, thres = 0.01, maxCurved=
   G <- G + edges(c(t(edges)))
   G <<- G  %>% set_graph_attr("layout" , layout_with_lgl)
   m <<- max(allEdges[,3])
+  probs <<-  allEdges[allEdges[,3] > thres,3] / m * 5
   plot(G,edge.width = allEdges[allEdges[,3] > thres,3] / m * 5 ,edge.curved = curved, edge.arrow.mode = allEdges$arrow_mode[w])
   graphics::legend("topleft", c(dataR6$namesFG), col = mycol[1:Q], border = "black", lty = 1, lwd = 4)
 
