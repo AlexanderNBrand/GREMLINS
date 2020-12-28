@@ -70,7 +70,7 @@ plotMBM = function(resMBM,whichModel = 1, mycol = NULL, thres = 0.01, maxCurved=
     edges_i <- as.data.frame(edges_i)
     edges_i$type <- rep(dataR6$typeInter[i],length(c1))
     return(edges_i)})
-  allEdges <- do.call("rbind", list_edges)
+  allEdges <<- do.call("rbind", list_edges)
 
 
   allEdges$arrow_mode <- rep(0,nrow(allEdges))  # directed or nont directed
